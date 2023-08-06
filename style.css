@@ -7,9 +7,6 @@
 
 html {
   font-size: 10px;
-  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
-  -moz-user-select: none;
-       user-select: none;
 }
 
 body {
@@ -30,6 +27,14 @@ li {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  border: none;
+}
+
+dialog {
+  border: none;
 }
 
 .img__fluid {
@@ -145,6 +150,67 @@ h2.heading__primary:has(span) span span {
   left: 0;
 }
 
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+dialog {
+  width: 50vw;
+  height: 50%;
+  margin: auto;
+  background: linear-gradient(to right, #5DB6AF, #00CEFF);
+  overflow-y: hidden;
+  opacity: 0.95;
+}
+
+.dialog__wrapper {
+  width: 70%;
+  height: 70%;
+  margin: auto;
+  transform: translateY(30%);
+  position: relative;
+}
+
+.service__model--close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  transition: 0.3s ease-in-out;
+}
+
+.service__model--close:hover {
+  filter: brightness(0.9);
+}
+
+.service__model--close div {
+  display: contents;
+}
+
+.service__model--close div span {
+  display: block;
+  width: 3px;
+  height: 60%;
+  background-color: var(--color-primary);
+  transform-origin: center;
+}
+
+.service__model--close div span:first-of-type {
+  transform: rotate(45deg) translate(0px, -2px);
+}
+
+.service__model--close div span:last-of-type {
+  transform: rotate(-45deg) translate(-1px, -3px);
+}
+
 @media (max-width: 768px) {
   h2.heading__primary {
     padding-left: 2rem;
@@ -155,6 +221,141 @@ h2.heading__primary:has(span) span span {
     margin-bottom: 2rem;
   }
 }
+.swiper {
+  overflow: visible;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-block: 4rem !important;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 200px;
+  /*   height: 300px; */
+  position: relative;
+}
+
+.swiper-slide.display {
+  display: block !important;
+}
+
+.swiper-slide::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: linear-gradient(to bottom right, rgba(184, 184, 184, 0.5607843137), rgba(255, 255, 255, 0.368627451));
+}
+
+.swiper-slide-active::after {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.swiper-slide > div {
+  text-align: center;
+  display: none;
+  opacity: 0;
+}
+
+.swiper-slide-active div {
+  display: block;
+  opacity: 1;
+  z-index: 9;
+}
+
+.swiper-slide h2 {
+  font-size: 1.2rem;
+  font-family: "Libre Baskerville", serif;
+  color: #fff;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swiper-slide-active h2::after {
+  animation: line 0.5s linear forwards;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 1/1;
+  animation-name: zoom;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width: 768px) {
+  .swiper-slide h2 {
+    font-size: 2rem;
+  }
+}
+/* Initially hide the previous and next slides */
+.swiper-slide.swiper-slide-visible.swiper-slide-prev,
+.swiper-slide.swiper-slide-visible.swiper-slide-next {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-slide-active {
+  opacity: 1 !important;
+}
+
+/* Show the previous and next slides when hovering on navigation buttons */
+.swiper-button-prev:hover + .swiper .swiper-slide-prev,
+.swiper-button-next:hover + .swiper .swiper-slide-next {
+  opacity: 1 !important;
+  transition: opacity 1s ease;
+}
+
+/* Adjust arrow position */
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  transform: translateY(-40%);
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+/* .swiper-button-prev,
+.swiper-button-next {
+  z-index: 99;
+} */
+.mySwiper [class^=swiper-button-]::after {
+  content: "";
+}
+
+.mySwiper [class^=swiper-button-] {
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+.mySwiper {
+  position: relative;
+}
+
+.mySwiper .swiper-button-next {
+  right: 0;
+}
+
+.mySwiper .swiper-button-prev {
+  left: 0;
+}
+
 .profile__row {
   display: flex;
   margin-top: 6rem;

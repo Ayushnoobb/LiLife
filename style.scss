@@ -6,9 +6,9 @@
   
   html {
     font-size: 10px;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; 
+    // -webkit-user-select: none; /* Safari */
+    // -ms-user-select: none; /* IE 10 and IE 11 */
+    // user-select: none; 
   }
   
   body {
@@ -30,6 +30,12 @@
   a{
     text-decoration: none;
     color: inherit;
+  }
+  button{
+    border: none;
+  }
+  dialog{
+    border: none;
   }
 
 
