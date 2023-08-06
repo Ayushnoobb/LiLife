@@ -87,12 +87,13 @@ dialog::backdrop{
     background-color: rgba(0, 0 , 0 ,0.3);
 }
 dialog{
-    width: 50vw;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    background: linear-gradient(to right , #5DB6AF , #00CEFF);
-    overflow-y: hidden;
-    opacity: 0.95;
+    // background: linear-gradient(to right , #5DB6AF , #00CEFF);
+    background-color: var(--color-primary);
+    overflow: hidden;
+    // opacity: 0.9;
 }
 
 .dialog__wrapper{
@@ -101,6 +102,7 @@ dialog{
     margin: auto;
     transform:translateY(30%) ;
     position: relative;
+    overflow: hidden;
     
 }
 .service__model--close{
@@ -148,6 +150,30 @@ dialog{
     .text__general:not(.renovation__content .text__general){
         margin-bottom: 2rem;
     }
+    dialog{
+        width: 100vw;
+        height: 100%;
+        // background: transparent;
+    }
+    .dialog__wrapper{
+        width: 80%;
+    }
+    .service__model--close{
+        width: 40px;
+        height: 40px;
+    }
+    .service__model--close div span{
+        height: 70%;
+    }
+}
+
+@media(max-width:576px){
+    dialog{
+        height: 50%;
+    }
+    .dialog__wrapper{
+        width: 90%;
+    }
 }
 
 // swiper
@@ -160,6 +186,7 @@ dialog{
     left: 50%;
     transform: translate(-50%, -50%);
     padding-block: 4rem !important;
+    padding-inline: 2rem;
   }
   .swiper-slide {
     background-position: center;
@@ -170,23 +197,11 @@ dialog{
     position: relative;
   }
 
+
   .swiper-slide.display{
     display: block !important;
   }
   
-  .swiper-slide::after {
-    position: absolute;
-    content: "";
-    inset: 0;
-    width: 100%;
-    aspect-ratio: 1/1;
-    // border-radius: 50%;
-    background: linear-gradient(to bottom right, #b8b8b88f, #ffffff5e);
-  }
-  .swiper-slide-active::after {
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 0;
-  }
   .swiper-slide > div {
     text-align: center;
     display: none;
@@ -218,7 +233,7 @@ dialog{
     display: block;
     width: 100%;
     object-fit: cover;
-    box-shadow: 0px 0px 60px rgb(0 0 0 / 25%);
+    // box-shadow: 0px 0px 60px rgb(0 0 0 / 0.1);
     // border-radius: 50%;
     aspect-ratio: 1/1;
     animation-name: zoom;
@@ -260,6 +275,7 @@ dialog{
     background: #fff;
     border: 5px solid #fff;
     border-radius: 50%;
+    bottom:0 !important ;
   }
   
   /* .swiper-button-prev,
@@ -282,7 +298,16 @@ dialog{
     right: 0;
   }
   .mySwiper .swiper-button-prev {
-    left: 0;
+    left: 1px;
+  }
+
+
+  @media(max-width:768px){
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
   }
 
 // .swiper {

@@ -73,7 +73,7 @@
                     <a href="../pages/renovation.html">リフォームの流れ</a>
                 </li>
                 <li class="header__link">
-                    <a href="../pages/contact.html">お問い合わせ</a>
+                    <a href="#">お問い合わせ</a>
                 </li>
                 <li class="header__contact">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30.781" height="23.794" viewBox="0 0 30.781 23.794" class="phone__icon">
@@ -142,76 +142,41 @@
                 </div>
             </aside>
             <main class="main">
-                <section class="renovation">
+                <section class="contact">
                     <div class="page__banner">
-                        <h2 class="page__title">リフォームの流れ </h2>
+                        <h2 class="page__title">お問い合わせ </h2>
                         <img src="../img/banner/page-banner.png" alt="page-top-banner" class="page__banner">
                     </div>
                     <div class="container">
-                        <div class="renovation__wrapper">
-                            <card class="renovation__type">
-                                <img src="../img/renovation/renovation_01.jpg" alt="renovation-type-hero" width="100%" class="img__fluid">
-                                <article class="renovation__article">
-                                    <h2 class="heading__primary"><span>STEP<span class="text__bold">01</span></span>お問合せ</h2>
-                                    <div class="renovation__content">
-                                        <p class="text__general">
-                                            まずはお電話にてお問い合わせください。<br>
-                                            お客様のご要望、ご相談をお伺いいたします。
-                                        </p>
-                                    </div>
-                                </article>
-                            </card>
-                            <card class="renovation__type">
-                                <img src="../img/renovation/renovation_02.jpg" alt="renovation-type-hero" width="100%" class="img__fluid">
-                                <article class="renovation__article">
-                                    <h2 class="heading__primary"><span>STEP<span>02</span></span>現場状況確認</h2>
-                                    <div class="renovation__content">
-                                        <p class="text__general">
-                                            私共で現場の状況を確認した上、お見積もりを提出いたします。
-                                        </p>
-                                    </div>
-                                </article>
-                            </card>
-                            <card class="renovation__type">
-                                <img src="../img/renovation/renovation_03.jpg" alt="renovation-type-hero" width="100%" class="img__fluid">
-                                <article class="renovation__article">
-                                    <h2 class="heading__primary"><span>STEP<span>03</span></span>施工内容確認</h2>
-                                    <div class="renovation__content">
-                                        <p class="text__general">
-                                            見積書の内容についてのご希望に見合った内容で、お見積もりを再提出いたします。
-                                        </p>
-                                    </div>
-                                </article>
-                            </card>
-                            <card class="renovation__type">
-                                <img src="../img/renovation/renovation_04.jpg" alt="renovation-type-hero" width="100%" class="img__fluid">
-                                <article class="renovation__article">
-                                    <h2 class="heading__primary"><span>STEP<span>04</span></span>現場施工</h2>
-                                    <div class="renovation__content">
-                                        <p class="text__general">
-                                            足場を設置し、修理工事着工となります。職人がお伺いし、午前中から夕方にかけて作業が行われます。<br>期間は修理内容によって異なりますが、約1週間が目安です。
-                                        </p>
-                                        <ul class="common__notes">
-                                            <li class="common__note">天候によっては作業が行えない場合があります。</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                            </card>
-                            <card class="renovation__type">
-                                <img src="../img/renovation/renovation_05.jpg" alt="renovation-type-hero" width="100%" class="img__fluid">
-                                <article class="renovation__article">
-                                    <h2 class="heading__primary"><span>STEP<span>05</span></span>完了検査</h2>
-                                    <div class="renovation__content">
-                                        <p class="text__general">
-                                            当社して完了検査の上、現場完了報告書を提出
-                                        </p>
-                                        <ul class="common__notes">
-                                            <li class="common__note">ご希望の場合は立会いにて報告致します。</li>
-                                        </ul>
-                                    </div>
-                                </article>
-                            </card>
-                        </div>
+                        <form class="row input-container">
+                            <div class="col-xs-12">
+                                <div class="styled-input wide">
+                                    <input type="text" required name="family-name" id="family-name" />
+                                    <label>氏名</label> 
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input">
+                                    <input type="text" required name="telephone" id="telephone" />
+                                    <label>電話</label> 
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="styled-input" style="float:right;">
+                                    <input type="text" required name="email" id="email"/>
+                                    <label>メールアドレス</label> 
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="styled-input wide">
+                                    <textarea required name="message" id="message"></textarea>
+                                    <label>相談内容</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <button class="btn-lrg submit-btn" type="submit">送信を確認する</button>
+                            </div>
+                        </form>
                     </div>
                 </section>
             </main>

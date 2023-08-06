@@ -79,24 +79,17 @@ function swiperInit(i){
           nextEl: ".swiper-button-prev",
           prevEl: ".swiper-button-next"
         },
-        effect: "coverflow",
         centeredSlides: true,
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 40,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
         },
-        coverflowEffect: {
-          rotate: 0,
-          stretch: 0,
-          depth: 0,
-          modifier: 4,
-          slideShadows: false
-        },
         breakpoints: {
+            
           640: {
-            slidesPerView: 2
+            slidesPerView: 1
           }
         }
       });
@@ -104,14 +97,15 @@ function swiperInit(i){
       const sliders = [
         {"length":7},
         {"length":5},
-        {"length":4},
         {"length":7},
         {"length":3},
         {"length":5},
-        {"length":7},
         {"length":4},
         {"length":7},
-        {"length":8},
+        {"length":7},
+        {"length":7},
+        {"length":5},
+        {"length":10},
     ]
 
     let length = sliders[i].length;
@@ -124,17 +118,15 @@ function swiperInit(i){
 
         // Create an <img> element
         var imgElement = document.createElement('img');
-        imgElement.src = `../img/construction-img/category${i+1}_0${counter}.jpg`;
+        imgElement.src = `../img/construction-img/category${i+1}_${counter}.jpg`;
         imgElement.alt = 'Image Alt Text';
 
         divElement.appendChild(imgElement);
 
-        // Append the <div> element to the body of the document
-        // document.querySelector(".swiper-wrapper").appendChild(divElement);
-        console.log(divElement)
+        // Append the <div> element to the parent
         swiper.prependSlide(divElement);
 
-        console.log(document.querySelectorAll(".swiper-slide").length )
+
 
     }
 
