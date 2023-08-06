@@ -75,6 +75,12 @@
                 font-size: 1.2rem;
             }
         }
+        
+        &__col{
+            .heading__primary{
+                margin-left: 1.5rem;
+            }
+        }
     }
 }
 
@@ -128,6 +134,7 @@
         padding-block: 2.4rem;
         text-align: center;
         position: relative;
+        color: var(--color-black);
 
         &::before{
             position: absolute;

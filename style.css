@@ -7,6 +7,9 @@
 
 html {
   font-size: 10px;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none;
 }
 
 body {
@@ -435,6 +438,9 @@ dialog {
   .profile__table th, .profile__table td {
     font-size: 1.2rem;
   }
+  .profile__col .heading__primary {
+    margin-left: 1.5rem;
+  }
 }
 .service__wrapper {
   display: flex;
@@ -471,6 +477,7 @@ dialog {
   padding-block: 2.4rem;
   text-align: center;
   position: relative;
+  color: var(--color-black);
 }
 .service__button::before {
   position: absolute;
@@ -848,6 +855,7 @@ input[type=checkbox]:checked + label {
   padding: 1.1rem 0.9rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: all 0.3s ease-in-out;
 }
 .header__contact a .mail__icon {
@@ -889,18 +897,19 @@ input[type=checkbox]:checked + label {
   .header__links {
     width: 0%;
     height: calc(100vh - 25px);
+    font-size: 1.6rem;
     background-color: #fff;
     color: var(--color-primary);
-    visibility: hidden;
-    position: absolute;
-    right: 0;
-    top: 25px;
-    transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    transition: all 0.3s ease-in-out;
   }
   .header__links .header__contact:nth-of-type(6) {
     display: none;
@@ -910,6 +919,9 @@ input[type=checkbox]:checked + label {
     display: none;
     border: 1px solid var(--color-primary);
   }
+  .header__link a {
+    font-size: 1.6rem;
+  }
   .header__links.is-open {
     width: 75%;
     visibility: visible;
@@ -918,11 +930,14 @@ input[type=checkbox]:checked + label {
     animation-delay: 0.2s;
     display: block;
     background-color: var(--color-primary);
+    width: 235px;
   }
   .header__links.is-open .header__contact:last-of-type {
     animation-delay: 0.3s;
     display: block;
     border: 1px solid var(--color-primary);
+    width: 235px;
+    text-align: center;
   }
   .hamburger {
     padding: 1rem;
