@@ -4,6 +4,7 @@ window.addEventListener("load", ()=>{
     indexZero();
     clickHam();
     buttonClick();
+    // handleForm();
 
 })
 
@@ -12,6 +13,7 @@ window.addEventListener("resize" , ()=>{
     indexZero();
     clickHam();
     buttonClick();
+    // handleForm();
 
 })
 
@@ -48,27 +50,31 @@ function clickHam(){
 
 function buttonClick(){
     const buttons = document.querySelectorAll(".card__more");
-    document.querySelector(".service__model").close();
+    // document.querySelector(".service__model").close();
 
 
-    buttons.forEach((button,index) =>{
-        button.addEventListener("click",async() => {
-            // showSlide(index);
-            // await appendItem(index);
-            swiperInit(index);
-            document.querySelector(".service__model").showModal();
-            document.body.style.height = "100vh";   
-            document.body.style.overflow = "hidden";
-
+    if(buttons){
+        buttons.forEach((button,index) =>{
+            button.addEventListener("click",async() => {
+                // showSlide(index);
+                // await appendItem(index);
+                swiperInit(index);
+                document.querySelector(".service__model").showModal();
+                document.body.style.height = "100vh";   
+                document.body.style.overflow = "hidden";
+    
+            })
         })
-    })
+    }
 
-    document.querySelector(".service__model--close").addEventListener("click",()=>{
-        document.querySelector(".service__model").close();
-        document.body.style.height = "unset";   
-        document.body.style.overflow = "auto";
-        location.reload();
-    })
+    if(document.querySelector(".service__model--close")){
+        document.querySelector(".service__model--close").addEventListener("click",()=>{
+            document.querySelector(".service__model").close();
+            document.body.style.height = "unset";   
+            document.body.style.overflow = "auto";
+            location.reload();
+        })
+    }
 
 
 }
@@ -76,8 +82,8 @@ function buttonClick(){
 function swiperInit(i){
     var swiper = new Swiper(".mySwiper", {
         navigation: {
-          nextEl: ".swiper-button-prev",
-          prevEl: ".swiper-button-next"
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
         },
         centeredSlides: true,
         slidesPerView: 1,
@@ -112,12 +118,14 @@ function swiperInit(i){
     let child = "";
 
     for(counter=1 ; counter<=length ; counter++){
-        console.log("prepend")
         var divElement = document.createElement('div');
         divElement.className = 'swiper-slide'; // Add a CSS class if desired
 
         // Create an <img> element
         var imgElement = document.createElement('img');
+        if( i == 2){
+            imgElement.style.obj
+        }
         imgElement.src = `../img/construction-img/category${i+1}_${counter}.jpg`;
         imgElement.alt = 'Image Alt Text';
 
@@ -146,8 +154,84 @@ function showSlide(i){
     })
 }
 
-function appendItem(i){
-    console.log("append")
+function handleForm(){
+    const form = document.getElementById('contactForm');
+    const errorMessages = document.getElementById('errorMessages');
 
-    
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+      let errorMsg = '';
+
+      // Clear previous error messages
+      errorMessages.innerHTML = '';
+
+    //   console.log(event.target.family_name.value)
+
+    //   // Name validation
+      const nameInput = event.target.family_name.value;
+      if (!nameInput.value) {
+        errorMsg += 'Name is required.<br>';
+      }
+
+      // Email validation
+      const emailInput = event.target.email.value;
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      if (!emailPattern.test(emailInput.value)) {
+        errorMsg += 'Valid email is required.<br>';
+      }
+
+      // Message validation
+      const messageInput = event.target.message.value;
+      if (!messageInput.value) {
+        errorMsg += 'Message is required.<br>';
+      }
+
+
+      const phoneNumberInput = event.target.telephone.value;
+    //   const phoneNumberPattern = /^(?:\+81|0)[1-9][0-9]{8,9}$/;
+      
+    //   if (!phoneNumberPattern.test(phoneNumberInput.value)) {
+    //     errorMsg += 'Valid Japanese phone number is required.<br>';
+    //   }
+
+    // Email.send({
+    //     Host : "smtp.gmail.com",
+    //     Username : "ayushwilltry@gmail.com",
+    //     Password : "38B37EC06EFBC9CEC28540C813CB22DBB8C7",
+    //     To : 'ayushwilltry@gmail.com',
+    //     From : `${emailInput}`,
+    //     Subject : "This is the subject",
+    //     Body : "And this is the body"
+    // }).then(
+    //   message => alert(message)
+    // );
+
+      // Display error messages or submit the form
+    //   if (errorMsg) {
+    //     errorMessages.innerHTML = errorMsg;
+    //   }else{
+    //         try{
+    //             fetch("https://curious-snickerdoodle-964c6a.netlify.app/.netlify/functions/api/demo")
+    //             .then(res => res.json())
+    //             .then(data => console.log(data))
+    //         }
+    //         catch(error){
+    //             console.log(error);
+    //         }
+    //   }
+
+    //   if(messageInput && emailInput && phoneNumberInput && messageInput){
+    //     console.log("true");
+    //     try{
+    //         fetch("https://curious-snickerdoodle-964c6a.netlify.app/.netlify/functions/api/demo")
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
+    //     }
+    //     catch(error){
+    //         console.log(true);
+    //     }
+    //   }
+
+    //   console.log(messageInput);
+    });
 }
