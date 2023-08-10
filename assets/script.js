@@ -132,7 +132,7 @@ function swiperInit(i){
         divElement.appendChild(imgElement);
 
         // Append the <div> element to the parent
-        swiper.prependSlide(divElement);
+        swiper.appendSlide(divElement);
 
 
 
